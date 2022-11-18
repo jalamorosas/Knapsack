@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Knapsack for Youtube",
+    "version": "1.0",
+    "description": "Save youtube comments to come back to later.",
+    "content_scripts": [
+        {
+          "matches": [
+            "*://*.youtube.com/*"
+          ],
+          "run_at": "document_end",
+          "js": [
+            "scripts/content.js",
+            "scripts/comment.service.js"    
+          ]
+        }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "*://*.youtube.com/*"
+    ],
+    "permissions": [
+      "storage"
+    ]
+  }
