@@ -26,15 +26,10 @@ const displayComments = async () => {
         const commentAuthor = document.createElement('h5');
         commentAuthor.innerHTML = comment.author;
         commentContainer.appendChild(commentAuthor);
-        
+
         const commentLink = document.createElement('p');
         commentLink.title = comment.text;
         commentLink.innerHTML = comment.text;
-        // commentLink.href = comment.url;
-        // commentLink.onclick = async (ev) => {
-        //     ev.preventDefault();
-        //     await chrome.tabs.create({ url: ev.target.href, active: false });
-        // };
         commentContainer.appendChild(commentLink);
     })
 }

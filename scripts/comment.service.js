@@ -21,9 +21,9 @@ var CommentService = class {
         return promise;
     }
 
-    static saveComment = async (text, author) => {
+    static saveComment = async (text, author, url) => {
         const comments = await this.getComments();
-        const updatedComments = [...comments, { text, author }];
+        const updatedComments = [...comments, { text, author, url}];
 
         const promise = toPromise((resolve, reject) => {
             
