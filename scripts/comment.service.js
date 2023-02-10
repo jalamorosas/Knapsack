@@ -49,14 +49,6 @@ var CommentService = class {
 
         return promise;
     }
-
-    static getActiveTab = async () => {
-        const query = { active: true, currentWindow: true };
-        const tabs = await chrome.tabs.query(query);
-        
-        return tabs[0];
-    }
-
 }
 
 /**

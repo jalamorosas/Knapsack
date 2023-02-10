@@ -15,21 +15,31 @@ const displayComments = async () => {
     commentList.innerHTML = '';
 
     savedComments.forEach(comment => {
-        const commentItem = document.createElement('div');
-        commentItem.classList.add("comment");
-        commentList.appendChild(commentItem);
+        // create comment div for popup
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add("comment");
+        commentList.appendChild(commentDiv);
 
         const commentContainer = document.createElement('div');
         commentContainer.classList.add("container");
-        commentItem.appendChild(commentContainer);
+        commentDiv.appendChild(commentContainer);
 
+        // adds clickable link to video comment was pulled from
+        const videoLink = document.createElement('a');
+        videoLink.setAttribute('href', comment.url);
+        videoLink.setAttribute('target', "_blank");
+        commentContainer.appendChild(videoLink);
+
+        // display author of comment
         const commentAuthor = document.createElement('h5');
         commentAuthor.innerHTML = comment.author;
-        commentContainer.appendChild(commentAuthor);
+        videoLink.appendChild(commentAuthor);
 
-        const commentLink = document.createElement('p');
-        commentLink.title = comment.text;
-        commentLink.innerHTML = comment.text;
-        commentContainer.appendChild(commentLink);
+        // display text of the comment
+        const commentText = document.createElement('p');
+        commentText.title = comment.text;
+        commentText.innerHTML = comment.text;
+        commentContainer.appendChild(commentText);
+
     })
 }

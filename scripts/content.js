@@ -3,31 +3,27 @@
     const SAVE_CONTAINER = "#header>#header-author>yt-formatted-string";
     const COMMENT_TEXT = "#expander>#content>#content-text";
     const COMMENT_AUTHOR = "#header>#header-author>.ytd-comment-renderer>#author-text>span";
-    
+   
     function saveButton(main) {
         let sb = document.createElement("a");
         sb.id = "comment-save-button";
         sb.style = "margin-left: 5px";
         sb.classList = "yt-simple-endpoint style-scope yt-formatted-string";
-        const comment = main.querySelector(COMMENT_TEXT);
-        const commentText = comment.innerText;
-        const commentAuthor = main.querySelector(COMMENT_AUTHOR);
-        const authorText = commentAuthor.innerText
         sb.innerText = "Save"
         sb.onclick = async () => {
+            const comment = main.querySelector(COMMENT_TEXT);
+            const commentText = comment.innerText;
+            const commentAuthor = main.querySelector(COMMENT_AUTHOR);
+            const authorText = commentAuthor.innerText
+            const videoURL =  document.URL;
             sb.innerText = "Saved!";
-            await CommentService.saveComment(commentText, authorText);
+            await CommentService.saveComment(commentText, authorText, videoURL);
         };
         return sb;
     }
-    
-    // add some logic so that it doesn't double insert the save button:
 
     inject();
     
-    
-    
-
     function inject () {
         const observerConfig = {childList: true, subtree: true};
         const commentObserver = new MutationObserver(e => {
@@ -45,7 +41,6 @@
                 }
             }
         });
-    
         commentObserver.observe(document, observerConfig);
     }
 })();
