@@ -1,15 +1,50 @@
 body{
-    width: 400px;
-    background-color: whitesmoke;
+    width: 450px;
+    background-color: #4B4850;
+}
+h1 {
+    /* Your Knapsack */
+    font-style: normal;
+    font-weight: 900;
+    color: #E4A5EE;
+    padding-inline-start: 15px;
+    font-size: 2.5em;
+    margin-block-end: .5em;
 }
 
+p {
+    color: white;
+}
+
+h3 {
+    color: #E4A5EE;
+    font-size: 1.1em;
+    margin-block-end: .5em;
+}
+/* get rid of default ul padding at beginning */
+#comment-list {
+    padding-inline-start: 0px;
+}
+
+.comment-text {
+    margin-block-start: .5em;
+    margin-block-end: 1em;
+}
 .comment {
-    width: 350px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 425px;
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
     margin: 10px;
-    background-color: white;
+    background: #2A282E;
+    box-shadow: 0px 4.19476px 6.29213px 3.14607px rgba(60, 64, 67, 0.15), 0px 2.09738px 2.09738px rgba(60, 64, 67, 0.3);
+    border-radius: 12.5843px;
+
+    /* center comments */
+    margin: 10px auto;
+}
+
+a {
+    color: #E4A5EE;
+    text-decoration: none;
 }
 
 .comment:hover {
@@ -18,10 +53,6 @@ body{
   
 .container {
     padding: 2px 16px;
-}
-
-a {
-    text-decoration: none;
 }
 
 button {

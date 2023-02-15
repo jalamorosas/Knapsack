@@ -31,13 +31,13 @@ const displayComments = async () => {
         commentContainer.appendChild(videoLink);
 
         // display author of comment
-        const commentAuthor = document.createElement('h5');
+        const commentAuthor = document.createElement('h3');
         commentAuthor.innerHTML = comment.author;
         videoLink.appendChild(commentAuthor);
 
         // display text of the comment
         const commentText = document.createElement('p');
-        commentText.title = comment.text;
+        commentText.classList.add("comment-text");
         commentText.innerHTML = comment.text;
         commentContainer.appendChild(commentText);
 
